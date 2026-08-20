@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;      /* #F8FAFC soft clinical slate-50 */
+    --foreground: 222 47% 11%;      /* #0F172A slate-900 */
+
+    --card: 0 0% 100%;              /* #FFFFFF pure white card */
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 173 80% 32%;         /* #0D9488 Medical Deep Teal */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96.1%;     /* #F1F5F9 Slate-100 */
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%; /* #64748B */
+
+    --accent: 166 76% 97%;          /* #F0FDFA Mint Mist */
+    --accent-foreground: 173 80% 28%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;    /* #E2E8F0 */
+    --input: 214.3 31.8% 91.4%;
+    --ring: 173 80% 32%;
+
+    --radius: 0.75rem;              /* 12px default smooth corners */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+}
+
+/* Custom Scrollbar for high-density clinical views */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.clinical-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.subtle-ring {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.subtle-ring:focus-within {
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
