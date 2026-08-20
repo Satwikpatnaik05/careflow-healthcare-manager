@@ -26,7 +26,7 @@ async function main() {
   await prisma.specialization.deleteMany();
   await prisma.user.deleteMany();
 
-  const defaultPassword = await hashPass("Password123!");
+  const defaultPassword = await hashPass("Online123");
 
   // 1. Specializations
   const specializations = await Promise.all([
@@ -76,11 +76,11 @@ async function main() {
 
   const [cardio, derm, genMed, neuro, peds, ortho] = specializations;
 
-  // 2. Admin User
+  // 2. Admin User: Patnaik
   const admin = await prisma.user.create({
     data: {
       email: "admin@careflow.health",
-      name: "Dr. Eleanor Vance",
+      name: "Patnaik",
       passwordHash: defaultPassword,
       role: "ADMIN",
       phone: "+1 (555) 019-2834",
@@ -88,62 +88,51 @@ async function main() {
     },
   });
 
-  // 3. Doctor Users & Profiles
+  // 3. Doctor Users & Profiles (Dr. Satwik, Dr. Vinith, Dr. Aravind Patel, Dr. Elena Rostova, Dr. James Wilson)
   const doctorData = [
     {
-      email: "dr.marcus@careflow.health",
-      name: "Dr. Marcus Chen, MD",
+      email: "satwik@careflow.health",
+      name: "Dr. Satwik, MD",
       phone: "+1 (555) 012-3401",
       avatarUrl: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300",
       specId: cardio.id,
       license: "MD-CA-98124",
-      bio: "Board-certified Cardiologist with 12+ years of experience in preventive cardiology, echocardiography, and hypertension management. Harvard Medical School alumnus.",
+      bio: "Board-certified Cardiologist specializing in cardiovascular health, preventative heart diagnostics, echocardiography, and hypertension management.",
       exp: 12,
       fee: 120.0,
     },
     {
-      email: "dr.sarah@careflow.health",
-      name: "Dr. Sarah Jenkins, MD",
+      email: "vinith@careflow.health",
+      name: "Dr. Vinith, MD",
       phone: "+1 (555) 012-3402",
-      avatarUrl: "https://images.unsplash.com/photo-1594824813589-32219747970d?auto=format&fit=crop&q=80&w=300",
+      avatarUrl: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300",
       specId: derm.id,
       license: "MD-NY-77219",
-      bio: "Dermatologist focusing on clinical dermatology, autoimmune skin conditions, allergy management, and acne therapies. Johns Hopkins trained.",
+      bio: "Clinical Dermatologist focusing on autoimmune skin conditions, allergy management, acute dermatitis, and targeted skincare therapies.",
       exp: 9,
       fee: 95.0,
     },
     {
-      email: "dr.aravind@careflow.health",
-      name: "Dr. Aravind Patel, MD",
+      email: "aravind@careflow.health",
+      name: "Dr. Aravind, MD",
       phone: "+1 (555) 012-3403",
-      avatarUrl: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300",
+      avatarUrl: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=300",
       specId: genMed.id,
       license: "MD-TX-44190",
-      bio: "Compassionate primary care physician with 15+ years managing acute illnesses, metabolic health, diabetes, and preventive wellness checks.",
+      bio: "Compassionate primary care physician with extensive experience managing acute illnesses, metabolic wellness, and preventive family health.",
       exp: 15,
       fee: 75.0,
     },
     {
-      email: "dr.elena@careflow.health",
-      name: "Dr. Elena Rostova, MD",
+      email: "elena@careflow.health",
+      name: "Dr. Elena, MD",
       phone: "+1 (555) 012-3404",
       avatarUrl: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=300",
       specId: neuro.id,
       license: "MD-IL-55823",
-      bio: "Neurologist specializing in chronic migraine treatment, neuropathies, and cognitive wellness. Stanford Medical graduate.",
+      bio: "Neurology specialist in chronic migraine treatment, neuropathies, and cognitive wellness diagnostics.",
       exp: 11,
       fee: 140.0,
-    },
-    {
-      email: "dr.james@careflow.health",
-      name: "Dr. James Wilson, MD",
-      phone: "+1 (555) 012-3405",
-      avatarUrl: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=300",
-      specId: peds.id,
-      license: "MD-WA-66312",
-      bio: "Pediatric specialist focused on newborn development, childhood asthma, nutritional guidance, and preventive pediatric immunizations.",
-      exp: 8,
-      fee: 85.0,
     },
   ];
 
@@ -193,40 +182,29 @@ async function main() {
     }
   }
 
-  // 4. Patient Users & Profiles
+  // 4. Patient Users & Profiles (Karthik, Praveen)
   const patientData = [
     {
-      email: "alice@patient.careflow.health",
-      name: "Alice Johnson",
+      email: "karthik@patient.careflow.health",
+      name: "Karthik",
       phone: "+1 (555) 044-8891",
       avatarUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=300",
-      dob: new Date("1992-04-12"),
-      gender: "Female",
+      dob: new Date("1994-06-15"),
+      gender: "Male",
       blood: "O+",
-      emergency: "Mark Johnson (+1 555-044-8890)",
-      history: "Mild seasonal asthma, allergic to Penicillin. Non-smoker.",
+      emergency: "Suresh (+1 555-044-8890)",
+      history: "Mild seasonal allergies. Non-smoker.",
     },
     {
-      email: "robert@patient.careflow.health",
-      name: "Robert Davis",
+      email: "praveen@patient.careflow.health",
+      name: "Praveen",
       phone: "+1 (555) 077-1234",
       avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
-      dob: new Date("1980-11-23"),
+      dob: new Date("1991-03-22"),
       gender: "Male",
       blood: "A+",
-      emergency: "Linda Davis (+1 555-077-1235)",
-      history: "Primary hypertension (diagnosed 2021), no known drug allergies.",
-    },
-    {
-      email: "clara@patient.careflow.health",
-      name: "Clara Morales",
-      phone: "+1 (555) 088-9900",
-      avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300",
-      dob: new Date("1998-07-09"),
-      gender: "Female",
-      blood: "B+",
-      emergency: "Sofia Morales (+1 555-088-9901)",
-      history: "Frequent tension headaches, otherwise healthy.",
+      emergency: "Ravi (+1 555-077-1235)",
+      history: "Primary hypertension (diagnosed 2022), no known drug allergies.",
     },
   ];
 
@@ -255,13 +233,12 @@ async function main() {
     createdPatients.push(user);
   }
 
-  // 5. Seed Past Completed Appointments with Consultation Records & Prescriptions
-  const doctorMarcus = createdDoctors[0].doctorProfile!;
-  const doctorSarah = createdDoctors[1].doctorProfile!;
-  const patientAlice = createdPatients[0].patientProfile!;
-  const patientRobert = createdPatients[1].patientProfile!;
+  // 5. Seed Past Completed Consultation for Praveen with Dr. Satwik (Cardiology)
+  const doctorSatwik = createdDoctors[0].doctorProfile!;
+  const doctorVinith = createdDoctors[1].doctorProfile!;
+  const patientKarthik = createdPatients[0].patientProfile!;
+  const patientPraveen = createdPatients[1].patientProfile!;
 
-  // Past Consultation for Robert with Dr. Marcus (Cardiology)
   const pastAptDate = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
   pastAptDate.setUTCHours(10, 0, 0, 0);
   const pastAptEnd = new Date(pastAptDate.getTime() + 30 * 60000);
@@ -269,8 +246,8 @@ async function main() {
   const pastApt = await prisma.appointment.create({
     data: {
       appointmentNumber: "APT-2026-0001",
-      patientId: patientRobert.id,
-      doctorId: doctorMarcus.id,
+      patientId: patientPraveen.id,
+      doctorId: doctorSatwik.id,
       startTime: pastAptDate,
       endTime: pastAptEnd,
       status: "COMPLETED",
@@ -291,7 +268,7 @@ async function main() {
       },
       consultationRecord: {
         create: {
-          doctorId: doctorMarcus.id,
+          doctorId: doctorSatwik.id,
           diagnosis: "Essential Hypertension (Stage 1) with mild anxiety-related palpitations",
           clinicalNotes: "Patient presents with borderline systolic elevation. Resting BP in clinic: 138/88 mmHg. Heart sounds S1/S2 normal without murmurs. ECG shows normal sinus rhythm. Advised lifestyle modifications, daily sodium restriction <2g, and initiated low-dose ACE inhibitor.",
           patientFriendlySummary: "Your clinical evaluation showed slightly elevated blood pressure and normal heart rhythms. We have started a gentle daily medication to protect your cardiovascular health. Continue keeping a home BP diary and aim for 30 minutes of light walking daily.",
@@ -303,7 +280,7 @@ async function main() {
     include: { consultationRecord: true },
   });
 
-  // Seed Prescription & Reminders for Robert
+  // Seed Prescription & Reminders for Praveen
   if (pastApt.consultationRecord) {
     const rx = await prisma.prescription.create({
       data: {
@@ -324,14 +301,14 @@ async function main() {
     await prisma.medicationReminder.create({
       data: {
         prescriptionId: rx.id,
-        patientId: patientRobert.id,
+        patientId: patientPraveen.id,
         scheduledTime: new Date(Date.now() + 12 * 60 * 60 * 1000),
         status: "PENDING",
       },
     });
   }
 
-  // 6. Upcoming Confirmed Appointment for Alice with Dr. Sarah (Dermatology)
+  // 6. Upcoming Confirmed Appointment for Karthik with Dr. Vinith (Dermatology)
   const tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000);
   tomorrow.setUTCHours(11, 0, 0, 0);
   const tomorrowEnd = new Date(tomorrow.getTime() + 30 * 60000);
@@ -339,14 +316,14 @@ async function main() {
   await prisma.appointment.create({
     data: {
       appointmentNumber: "APT-2026-0002",
-      patientId: patientAlice.id,
-      doctorId: doctorSarah.id,
+      patientId: patientKarthik.id,
+      doctorId: doctorVinith.id,
       startTime: tomorrow,
       endTime: tomorrowEnd,
       status: "CONFIRMED",
       symptomAssessment: {
         create: {
-          rawSymptoms: "Red itchy rash on both forearms that flared up after gardening 3 days ago. Mild burning sensation, no open blisters.",
+          rawSymptoms: "Red itchy rash on both forearms that flared up after outdoor gardening 3 days ago. Mild burning sensation, no open blisters.",
           duration: "3 days",
           painScale: 3,
           urgencyLevel: "LOW",
@@ -364,13 +341,12 @@ async function main() {
 
   console.log("✅ Seed completed successfully!");
   console.log("-----------------------------------------");
-  console.log("Demo Accounts Available:");
-  console.log("👑 Admin:   admin@careflow.health   / Password123!");
-  console.log("🩺 Doctor:  dr.marcus@careflow.health / Password123!");
-  console.log("🩺 Doctor:  dr.sarah@careflow.health  / Password123!");
-  console.log("🩺 Doctor:  dr.aravind@careflow.health / Password123!");
-  console.log("👤 Patient: alice@patient.careflow.health / Password123!");
-  console.log("👤 Patient: robert@patient.careflow.health / Password123!");
+  console.log("Demo Accounts Available (Password: Online123):");
+  console.log("👑 Admin:   admin@careflow.health   / Online123 (Patnaik)");
+  console.log("🩺 Doctor:  satwik@careflow.health  / Online123 (Dr. Satwik, MD)");
+  console.log("🩺 Doctor:  vinith@careflow.health  / Online123 (Dr. Vinith, MD)");
+  console.log("👤 Patient: karthik@patient.careflow.health / Online123 (Karthik)");
+  console.log("👤 Patient: praveen@patient.careflow.health / Online123 (Praveen)");
   console.log("-----------------------------------------");
 }
 

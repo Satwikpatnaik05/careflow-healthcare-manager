@@ -52,15 +52,15 @@ Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ## 🔐 Demo Evaluation Personas
 
-You can sign in with any of the following accounts or use the floating **"Switch Demo Persona"** button:
+You can sign in with any of the following accounts (Password: `Online123`) or use the floating **"Switch Demo Persona"** button:
 
 | Persona | Role | Email | Password | Primary Features |
 | :--- | :--- | :--- | :--- | :--- |
-| **Alice Johnson** | `PATIENT` | `alice@patient.careflow.health` | `Password123!` | Book specialists, 10m slot hold, AI symptom triage |
-| **Robert Davis** | `PATIENT` | `robert@patient.careflow.health` | `Password123!` | Active prescription adherence & Lisinopril reminders |
-| **Dr. Marcus Chen, MD** | `DOCTOR` | `dr.marcus@careflow.health` | `Password123!` | Cardiology queue, consult room & AI care plans |
-| **Dr. Sarah Jenkins, MD**| `DOCTOR` | `dr.sarah@careflow.health` | `Password123!` | Dermatology queue & symptom reviews |
-| **Dr. Eleanor Vance** | `ADMIN` | `admin@careflow.health` | `Password123!` | Clinic KPI overview, leaves & notification audits |
+| **Karthik** | `PATIENT` | `karthik@patient.careflow.health` | `Online123` | Book specialists, 10m slot hold, AI symptom triage |
+| **Praveen** | `PATIENT` | `praveen@patient.careflow.health` | `Online123` | Active prescription adherence & Lisinopril reminders |
+| **Dr. Satwik, MD** | `DOCTOR` | `satwik@careflow.health` | `Online123` | Cardiology queue, consult room & AI care plans |
+| **Dr. Vinith, MD** | `DOCTOR` | `vinith@careflow.health` | `Online123` | Dermatology queue & symptom reviews |
+| **Patnaik** | `ADMIN` | `admin@careflow.health` | `Online123` | Clinic KPI overview, leaves & notification audits |
 
 ---
 

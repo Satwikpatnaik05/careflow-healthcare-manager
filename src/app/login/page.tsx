@@ -35,7 +35,7 @@ export default function LoginPage() {
   function handleQuickFill(demoEmail: string, role: "PATIENT" | "DOCTOR" | "ADMIN") {
     setActiveTab(role);
     setEmail(demoEmail);
-    setPassword("Password123!");
+    setPassword("Online123");
   }
 
   async function handleLogin(e: React.FormEvent) {
@@ -248,20 +248,20 @@ export default function LoginPage() {
               <div className="grid grid-cols-3 gap-1.5">
                 <button
                   type="button"
-                  onClick={() => handleQuickFill("alice@patient.careflow.health", "PATIENT")}
+                  onClick={() => handleQuickFill("karthik@patient.careflow.health", "PATIENT")}
                   className="p-1.5 text-center rounded-lg bg-teal-50 hover:bg-teal-100 border border-teal-200/60 transition-colors"
                 >
                   <span className="text-[10px] font-bold text-teal-800 uppercase block">Patient</span>
-                  <span className="text-[11px] font-medium text-slate-700 block truncate">Alice J.</span>
+                  <span className="text-[11px] font-medium text-slate-700 block truncate">Karthik</span>
                 </button>
 
                 <button
                   type="button"
-                  onClick={() => handleQuickFill("dr.marcus@careflow.health", "DOCTOR")}
+                  onClick={() => handleQuickFill("satwik@careflow.health", "DOCTOR")}
                   className="p-1.5 text-center rounded-lg bg-blue-50 hover:bg-blue-100 border border-blue-200/60 transition-colors"
                 >
                   <span className="text-[10px] font-bold text-blue-800 uppercase block">Doctor</span>
-                  <span className="text-[11px] font-medium text-slate-700 block truncate">Dr. Marcus</span>
+                  <span className="text-[11px] font-medium text-slate-700 block truncate">Dr. Satwik</span>
                 </button>
 
                 <button
@@ -270,7 +270,7 @@ export default function LoginPage() {
                   className="p-1.5 text-center rounded-lg bg-purple-50 hover:bg-purple-100 border border-purple-200/60 transition-colors"
                 >
                   <span className="text-[10px] font-bold text-purple-800 uppercase block">Admin</span>
-                  <span className="text-[11px] font-medium text-slate-700 block truncate">Dr. Vance</span>
+                  <span className="text-[11px] font-medium text-slate-700 block truncate">Patnaik</span>
                 </button>
               </div>
             </div>

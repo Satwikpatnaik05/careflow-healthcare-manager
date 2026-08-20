@@ -25,8 +25,8 @@ const DEMO_PERSONAS = [
   {
     role: "Patient Portal",
     badge: "PATIENT",
-    name: "Alice Johnson",
-    email: "alice@patient.careflow.health",
+    name: "Karthik",
+    email: "karthik@patient.careflow.health",
     desc: "Search specialists, book slots with AI symptom triage, view prescriptions & medication reminders.",
     url: "/patient",
     color: "teal",
@@ -35,8 +35,8 @@ const DEMO_PERSONAS = [
   {
     role: "Doctor Portal",
     badge: "DOCTOR",
-    name: "Dr. Marcus Chen, MD",
-    email: "dr.marcus@careflow.health",
+    name: "Dr. Satwik, MD",
+    email: "satwik@careflow.health",
     desc: "Review AI pre-visit urgency assessments, record clinical notes, generate patient-friendly summaries & prescriptions.",
     url: "/doctor",
     color: "blue",
@@ -45,7 +45,7 @@ const DEMO_PERSONAS = [
   {
     role: "Admin Console",
     badge: "ADMIN",
-    name: "Dr. Eleanor Vance",
+    name: "Patnaik",
     email: "admin@careflow.health",
     desc: "Manage doctor profiles, approve leaves with automatic conflict resolution & audit notification dispatch logs.",
     url: "/admin",
